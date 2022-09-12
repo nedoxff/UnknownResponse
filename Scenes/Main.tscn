@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://nhw8n14ob84a"]
+
+[ext_resource type="FontFile" uid="uid://25h546fbr3mj" path="res://Fonts/Jetbrains Mono/JetBrainsMono-Regular.ttf" id="1_ojf1l"]
+[ext_resource type="PackedScene" uid="uid://dtrww3qbk82qr" path="res://Scenes/SceneLoader.tscn" id="1_roidr"]
+[ext_resource type="Script" path="res://Scripts/Scenes/Main.cs" id="1_x3ibw"]
+[ext_resource type="PackedScene" uid="uid://cxexu6itumcl5" path="res://Scenes/MainMenu.tscn" id="2_kfkvt"]
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_x3ibw")
+StartScene = ExtResource("2_kfkvt")
+
+[node name="SceneLoader" parent="." instance=ExtResource("1_roidr")]
+TransitionTime = 0.5
+
+[node name="Label" type="Label" parent="."]
+offset_right = 152.0
+offset_bottom = 23.0
+theme_override_colors/font_color = Color(1, 1, 1, 0.529412)
+theme_override_fonts/font = ExtResource("1_ojf1l")
+theme_override_font_sizes/font_size = 14
+text = "build: development"

@@ -1,0 +1,28 @@
+[gd_scene load_steps=2 format=3 uid="uid://dhuirrvjtwir6"]
+
+[ext_resource type="FontFile" uid="uid://eeggwbjb5yy5" path="res://Fonts/Comfortaa/Comfortaa-VariableFont_wght.ttf" id="1_sdxmy"]
+
+[node name="Settings" type="Node2D"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 800.0
+offset_bottom = 600.0
+color = Color(0, 0, 0, 1)
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+offset_right = 800.0
+offset_bottom = 600.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="PanelContainer"]
+custom_minimum_size = Vector2i(412, 42)
+layout_mode = 2
+offset_left = 194.0
+offset_top = 279.0
+offset_right = 606.0
+offset_bottom = 321.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_fonts/normal_font = ExtResource("1_sdxmy")
+theme_override_font_sizes/normal_font_size = 36
+bbcode_enabled = true
+text = "[wave amp=50 freq=2]currently in progress :)[/wave]"
