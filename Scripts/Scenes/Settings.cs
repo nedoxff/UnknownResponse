@@ -12,9 +12,11 @@ public partial class Settings : Node2D
 	private List<VBoxContainer> _containers;
 	[Export(PropertyHint.File, "*.tscn")] public string MainMenuScene;
 	[Export] public float SwitchDuration;
+	[Export] public Color SelectedColor;
 	public override void _Ready()
 	{
 		_options = GetNode("HBoxContainer").GetChildren().OfType<ColorRect>().ToList();
+		_options.First().Color = SelectedColor;
 		_containers = GetChildren().OfType<VBoxContainer>().ToList();
 		_loader = GetNode<SceneLoader>("/root/Main/SceneLoader");
 	}
@@ -35,7 +37,7 @@ public partial class Settings : Node2D
 		tween.TweenProperty(_options[_current], "color", new Color(0, 0, 0), SwitchDuration);
 		tween.TweenProperty(_containers[_current], "modulate:a", 0, SwitchDuration);
 		_current = index;
-		tween.TweenProperty(_options[index], "color", new Color(20 / 255f, 20 / 255f, 20 / 255f), SwitchDuration);
+		tween.TweenProperty(_options[index], "color", SelectedColor, SwitchDuration);
 		tween.TweenProperty(_containers[index], "modulate:a", 1, SwitchDuration);
 	}
 }
