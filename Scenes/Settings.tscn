@@ -1,28 +1,144 @@
-[gd_scene load_steps=2 format=3 uid="uid://dhuirrvjtwir6"]
+[gd_scene load_steps=4 format=3 uid="uid://dhuirrvjtwir6"]
 
-[ext_resource type="FontFile" uid="uid://eeggwbjb5yy5" path="res://Fonts/Comfortaa/Comfortaa-VariableFont_wght.ttf" id="1_sdxmy"]
+[ext_resource type="Script" path="res://Scripts/Scenes/Settings.cs" id="1_imi5r"]
+[ext_resource type="FontFile" uid="uid://ckqloi2ebt60h" path="res://Fonts/Overpass/overpass-mono-regular.otf" id="2_5xfy0"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_i64em"]
+font = ExtResource("2_5xfy0")
+font_size = 24
 
 [node name="Settings" type="Node2D"]
+script = ExtResource("1_imi5r")
+MainMenuScene = "res://Scenes/MainMenu.tscn"
+SwitchDuration = 0.25
 
 [node name="ColorRect" type="ColorRect" parent="."]
 offset_right = 800.0
 offset_bottom = 600.0
 color = Color(0, 0, 0, 1)
 
-[node name="PanelContainer" type="PanelContainer" parent="."]
+[node name="HBoxContainer" type="GridContainer" parent="."]
+offset_right = 800.0
+offset_bottom = 40.0
+columns = 3
+
+[node name="GeneralRect" type="ColorRect" parent="HBoxContainer"]
+layout_mode = 2
+offset_right = 264.0
+offset_bottom = 40.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0.0784314, 0.0784314, 0.0784314, 1)
+
+[node name="General" type="Label" parent="HBoxContainer/GeneralRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -37.5
+offset_top = -13.5
+offset_right = 37.5
+offset_bottom = 13.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "General"
+label_settings = SubResource("LabelSettings_i64em")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VideoRect" type="ColorRect" parent="HBoxContainer"]
+layout_mode = 2
+offset_left = 268.0
+offset_right = 532.0
+offset_bottom = 40.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 0, 0, 1)
+
+[node name="Video" type="Label" parent="HBoxContainer/VideoRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -37.5
+offset_top = -13.5
+offset_right = 37.5
+offset_bottom = 13.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Video"
+label_settings = SubResource("LabelSettings_i64em")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AudioRect" type="ColorRect" parent="HBoxContainer"]
+layout_mode = 2
+offset_left = 536.0
+offset_right = 800.0
+offset_bottom = 40.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 0, 0, 1)
+
+[node name="Audio" type="Label" parent="HBoxContainer/AudioRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -37.5
+offset_top = -13.5
+offset_right = 37.5
+offset_bottom = 13.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Audio"
+label_settings = SubResource("LabelSettings_i64em")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="GeneralContainer" type="VBoxContainer" parent="."]
+offset_top = 40.0
 offset_right = 800.0
 offset_bottom = 600.0
 
-[node name="RichTextLabel" type="RichTextLabel" parent="PanelContainer"]
-custom_minimum_size = Vector2i(412, 42)
+[node name="RichTextLabel" type="RichTextLabel" parent="GeneralContainer"]
 layout_mode = 2
-offset_left = 194.0
-offset_top = 279.0
-offset_right = 606.0
-offset_bottom = 321.0
-size_flags_horizontal = 4
-size_flags_vertical = 4
-theme_override_fonts/normal_font = ExtResource("1_sdxmy")
-theme_override_font_sizes/normal_font_size = 36
+offset_right = 800.0
+offset_bottom = 23.0
 bbcode_enabled = true
-text = "[wave amp=50 freq=2]currently in progress :)[/wave]"
+text = "[wave freq=4 amp=30]currently in progress :) (general)[/wave]"
+fit_content_height = true
+
+[node name="VideoContainer" type="VBoxContainer" parent="."]
+modulate = Color(1, 1, 1, 0)
+offset_top = 40.0
+offset_right = 800.0
+offset_bottom = 600.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="VideoContainer"]
+layout_mode = 2
+offset_right = 800.0
+offset_bottom = 23.0
+bbcode_enabled = true
+text = "[wave freq=4 amp=30]currently in progress :) (video)[/wave]"
+fit_content_height = true
+
+[node name="AudioContainer" type="VBoxContainer" parent="."]
+modulate = Color(1, 1, 1, 0)
+offset_top = 40.0
+offset_right = 800.0
+offset_bottom = 600.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="AudioContainer"]
+layout_mode = 2
+offset_right = 800.0
+offset_bottom = 23.0
+bbcode_enabled = true
+text = "[wave freq=4 amp=30]currently in progress :) (audio)[/wave]"
+fit_content_height = true
